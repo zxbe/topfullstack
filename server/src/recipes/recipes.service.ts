@@ -1,23 +1,45 @@
-import { Injectable } from '@nestjs/common'
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException
+} from '@nestjs/common'
+import { InjectModel } from '@nestjs/mongoose'
+import { Model } from 'mongoose'
+import { RecipeDb } from '../db/models/recipe.db.model'
 import { NewRecipeInput } from './dto/new-recipe.input'
 import { RecipesArgs } from './dto/recipes.args'
-import { Recipe } from './models/recipe.model'
+import { Recipe } from './recipe.graphql.model'
 
 @Injectable()
 export class RecipesService {
-  async create(date: NewRecipeInput): Promise<Recipe> {
-    return {} as any
+  constructor(
+    @InjectModel(RecipeDb.name) private recipeDbModel: Model<RecipeDb>
+  ) {}
+
+  async create(newRecipeInput: NewRecipeInput): Promise<Recipe> {
+    return new this.recipeDbModel(newRecipeInput).save()
   }
 
   async findOneById(id: string): Promise<Recipe> {
-    return {} as any
+    let recipe
+    try {
+      recipe = await this.recipeDbModel.findById(id)
+    } catch (ExceptionsHandler) {
+      throw new BadRequestException(`${id} is not a valid id.`)
+    }
+    if (!recipe) {
+      throw new NotFoundException(`${id} is not found.`)
+    }
+    return recipe
   }
 
   async findAll(recipesArgs: RecipesArgs): Promise<Recipe[]> {
-    return [] as Recipe[]
+    return this.recipeDbModel.find({ ...recipesArgs })
   }
 
   async remove(id: string): Promise<boolean> {
-    return true
+    const removeRecipe = this.recipeDbModel.findByIdAndRemove(id)
+    if (removeRecipe) return true
+    return false
   }
 }

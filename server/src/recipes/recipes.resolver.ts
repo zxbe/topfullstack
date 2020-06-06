@@ -1,8 +1,8 @@
-import { NotFoundException } from '@nestjs/common'
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
+import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql'
 import { PubSub } from 'apollo-server-express'
+import { NewRecipeInput } from './dto/new-recipe.input'
 import { RecipesArgs } from './dto/recipes.args'
-import { Recipe } from './models/recipe.model'
+import { Recipe } from './recipe.graphql.model'
 import { RecipesService } from './recipes.service'
 
 const pubSub = new PubSub()
@@ -13,11 +13,7 @@ export class RecipesResolver {
 
   @Query(returns => Recipe)
   async recipe(@Args('id') id: string): Promise<Recipe> {
-    const recipe = await this.recipesService.findOneById(id)
-    if (!recipe) {
-      throw new NotFoundException(id)
-    }
-    return recipe
+    return await this.recipesService.findOneById(id)
   }
 
   @Query(returns => [Recipe])
@@ -25,13 +21,22 @@ export class RecipesResolver {
     return this.recipesService.findAll(recipesArgs)
   }
 
+  @Mutation(returns => Recipe)
+  async addRecipe(
+    @Args('newRecipeInput') newRecipeInput: NewRecipeInput
+  ): Promise<Recipe> {
+    const recipe = await this.recipesService.create(newRecipeInput)
+    pubSub.publish('recipeAdd', { recipeAdd: recipe })
+    return recipe
+  }
+
   @Mutation(returns => Boolean)
   async removeRecipe(@Args('id') id: string) {
     return this.recipesService.remove(id)
   }
 
-  @Mutation(returns => Recipe)
+  @Subscription(returns => Recipe)
   recipeAdd() {
-    return pubSub.asyncIterator('recipeAdded')
+    return pubSub.asyncIterator('recipeAdd')
   }
 }

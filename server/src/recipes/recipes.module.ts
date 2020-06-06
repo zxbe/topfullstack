@@ -1,9 +1,14 @@
 import { Module } from '@nestjs/common'
-import { DateScalar } from 'src/common/scalars/date.scalar'
+import { MongooseModule } from '@nestjs/mongoose'
+import { RecipeDb, RecipeSchema } from 'src/db/models/recipe.db.model'
 import { RecipesResolver } from './recipes.resolver'
 import { RecipesService } from './recipes.service'
 
 @Module({
-  providers: [RecipesService, RecipesResolver, DateScalar]
+  imports: [
+    MongooseModule.forFeature([{ name: RecipeDb.name, schema: RecipeSchema }])
+  ],
+  // providers: [RecipesService, RecipesResolver, DateScalar]
+  providers: [RecipesService, RecipesResolver]
 })
 export class RecipesModule {}

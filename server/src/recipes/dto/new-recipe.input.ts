@@ -9,9 +9,9 @@ export class NewRecipeInput {
 
   @Field({ nullable: true })
   @IsOptional()
-  @Length(30, 255)
+  @Length(0, 255)
   description?: string
 
-  @Field(type => [String])
-  ingredients: string[]
+  // @Field(type => [String])
+  // ingredients: string[]
 }

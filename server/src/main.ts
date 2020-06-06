@@ -7,6 +7,6 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe())
 
   await app.listen(3000)
-  console.log(`app is running on:${await app.getUrl()}`)
+  console.log('graphql-playground is running on:http://localhost:3000/graphql')
 }
 bootstrap()

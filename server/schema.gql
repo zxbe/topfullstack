@@ -3,14 +3,10 @@
 # ------------------------------------------------------
 
 type Recipe {
-  id: ID!
+  _id: ID!
   title: String!
-  creationDate: Date!
-  ingredients: [String!]!
+  description: String!
 }
-
-"""Date custom scalar type"""
-scalar Date
 
 type Query {
   recipe(id: String!): Recipe!
@@ -18,6 +14,15 @@ type Query {
 }
 
 type Mutation {
+  addRecipe(newRecipeInput: NewRecipeInput!): Recipe!
   removeRecipe(id: String!): Boolean!
+}
+
+input NewRecipeInput {
+  title: String!
+  description: String
+}
+
+type Subscription {
   recipeAdd: Recipe!
 }
