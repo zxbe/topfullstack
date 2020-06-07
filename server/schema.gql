@@ -15,7 +15,7 @@ type Query {
 
 type Mutation {
   addRecipe(newRecipeInput: NewRecipeInput!): Recipe!
-  removeRecipe(id: String!): Boolean!
+  delRecipe(id: String!): Boolean!
 }
 
 input NewRecipeInput {

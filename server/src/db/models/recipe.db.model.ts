@@ -2,11 +2,11 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Document } from 'mongoose'
 
 @Schema()
-export class RecipeDb extends Document {
+export class Recipe extends Document {
   @Prop()
   title: string
   @Prop()
   description: string
 }
 
-export const RecipeSchema = SchemaFactory.createForClass(RecipeDb)
+export const RecipeSchema = SchemaFactory.createForClass(Recipe)

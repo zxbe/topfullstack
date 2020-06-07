@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
-import { RecipeDb, RecipeSchema } from 'src/db/models/recipe.db.model'
+import { Recipe as RecipeDb, RecipeSchema } from 'src/db/models/recipe.db.model'
 import { RecipesResolver } from './recipes.resolver'
 import { RecipesService } from './recipes.service'
 

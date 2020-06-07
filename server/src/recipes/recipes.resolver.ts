@@ -17,8 +17,8 @@ export class RecipesResolver {
   }
 
   @Query(returns => [Recipe])
-  recipes(@Args() recipesArgs: RecipesArgs): Promise<Recipe[]> {
-    return this.recipesService.findAll(recipesArgs)
+  async recipes(@Args() recipesArgs: RecipesArgs): Promise<Recipe[]> {
+    return await this.recipesService.findAll(recipesArgs)
   }
 
   @Mutation(returns => Recipe)
@@ -31,8 +31,8 @@ export class RecipesResolver {
   }
 
   @Mutation(returns => Boolean)
-  async removeRecipe(@Args('id') id: string) {
-    return this.recipesService.remove(id)
+  async delRecipe(@Args('id') id: string) {
+    return await this.recipesService.del(id)
   }
 
   @Subscription(returns => Recipe)

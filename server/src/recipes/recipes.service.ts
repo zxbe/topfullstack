@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
-import { RecipeDb } from '../db/models/recipe.db.model'
+import { Recipe as RecipeDb } from '../db/models/recipe.db.model'
 import { NewRecipeInput } from './dto/new-recipe.input'
 import { RecipesArgs } from './dto/recipes.args'
 import { Recipe } from './recipe.graphql.model'
@@ -34,11 +34,11 @@ export class RecipesService {
   }
 
   async findAll(recipesArgs: RecipesArgs): Promise<Recipe[]> {
-    return this.recipeDbModel.find({ ...recipesArgs })
+    return this.recipeDbModel.find().setOptions({ ...recipesArgs })
   }
 
-  async remove(id: string): Promise<boolean> {
-    const removeRecipe = this.recipeDbModel.findByIdAndRemove(id)
+  async del(id: string): Promise<boolean> {
+    const removeRecipe = await this.recipeDbModel.findByIdAndDelete(id)
     if (removeRecipe) return true
     return false
   }
