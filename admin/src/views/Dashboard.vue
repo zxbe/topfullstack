@@ -1,22 +1,30 @@
 <template>
-  <el-container class="demo">
-    <el-header>Header</el-header>
-    <el-container direction="horizontal">
-      <el-aside width="200px">Aside</el-aside>
-      <el-main>Main</el-main>
+  <el-container direction="horizontal" class="demo">
+    <el-aside width="200px">菜单</el-aside>
+    <el-container>
+      <el-header>全栈之巅 - 后台管理界面</el-header>
+      <el-main>
+        <router-view />
+      </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import { ElContainer, ElAside, ElMain } from '@/components/ElContainer'
+import {
+  ElContainer,
+  ElAside,
+  ElMain,
+  ElHeader
+} from '@/components/ElContainer'
 
 export default {
   name: 'Home',
   components: {
     ElContainer,
     ElAside,
-    ElMain
+    ElMain,
+    ElHeader
   }
 }
 </script>

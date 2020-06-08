@@ -6,11 +6,7 @@
 
 <script>
 export default {
-  name: 'ElMain',
-  setup(props) {
-    name: 'ElMain'
-    console.log(props.direction)
-  }
+  name: 'ElMain'
 }
 </script>
 

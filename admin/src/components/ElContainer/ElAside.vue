@@ -10,11 +10,8 @@ export default {
   props: {
     width: {
       type: String,
-      default: '120px'
+      default: '160px'
     }
-  },
-  setup(props) {
-    console.log(props.width)
   }
 }
 </script>
