@@ -11,6 +11,11 @@ const routes: RouteRecordRaw[] = [
         name: 'home',
         path: '/',
         component: async () => import('../views/Home.vue')
+      },
+      {
+        name: 'operate',
+        path: '/operate',
+        component: async () => import('../views/Operate.vue')
       }
     ]
   }
