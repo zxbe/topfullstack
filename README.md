@@ -10,7 +10,7 @@ WIP
 
 |  构架  |                   技术栈                    |                 备注                 |
 | :----: | :-----------------------------------------: | :----------------------------------: |
-|  后台  | Vue3(beta)、Vuex4(beta)、Vue Router(Alpha)  | Vue 3 全家桶目前 typescript Bug 较多 |
+|  后台  | Vue3(beta)、Vuex4(beta)、Vue Router4(Alpha) | Vue 3 全家桶目前 typescript Bug 较多 |
 | 服务端 | typescript、nestjs、mongodb、redis、graphql |                  -                   |
 |  前端  |          nuxtjs、vuetify、graphql           |       nuxtjs 支持 Vue3 后重构        |
 
