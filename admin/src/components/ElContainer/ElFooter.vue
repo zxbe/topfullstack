@@ -1,16 +1,19 @@
 <template>
-  <footer class="el-footer" :style="height">
+  <footer class="el-footer" :style="{ height }">
     <slot></slot>
   </footer>
 </template>
 
 <script>
-export default {
-  name: 'ElFooter',
-  setup(props) {
-    console.log(props.direction)
-  }
-}
-</script>
+import { defineComponent } from 'vue'
 
-<style></style>
+export default defineComponent({
+  name: 'ElFooter',
+  props: {
+    height: {
+      type: String,
+      default: '60px'
+    }
+  }
+})
+</script>

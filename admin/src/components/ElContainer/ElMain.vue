@@ -4,10 +4,10 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: 'ElMain'
-}
-</script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 
-<style></style>
+export default defineComponent({
+  name: 'ElMain'
+})
+</script>

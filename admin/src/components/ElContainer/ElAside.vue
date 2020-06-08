@@ -4,16 +4,16 @@
   </aside>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'ElAside',
   props: {
     width: {
       type: String,
-      default: '160px'
+      default: '180px'
     }
   }
-}
+})
 </script>
-
-<style></style>

@@ -1,5 +1,5 @@
 <template>
-  <el-container direction="horizontal" class="demo">
+  <el-container direction="horizontal">
     <el-aside width="200px">菜单</el-aside>
     <el-container>
       <el-header>全栈之巅 - 后台管理界面</el-header>
@@ -11,25 +11,19 @@
 </template>
 
 <script>
-import {
-  ElContainer,
-  ElAside,
-  ElMain,
-  ElHeader
-} from '@/components/ElContainer'
+import { defineComponent } from 'vue'
+import { ElContainer, ElAside, ElHeader } from '@/components/ElContainer'
 
-export default {
-  name: 'Home',
+export default defineComponent({
   components: {
     ElContainer,
     ElAside,
-    ElMain,
     ElHeader
   }
-}
+})
 </script>
 
-<style lang="less" scoped>
+<style>
 .demo {
   height: 100vh;
 }
