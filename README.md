@@ -8,11 +8,11 @@ WIP
 
 # 技术栈
 
-|  构架  |                   技术栈                    |                  备注                  |
-| :----: | :-----------------------------------------: | :------------------------------------: |
-|  后台  |                  Vue3 beta                  | Vue 3 release 后会使用 typescript 重构 |
-| 服务端 | typescript、nestjs、mongodb、redis、graphql |                   -                    |
-|  前端  |          nuxtjs、vuetify、graphql           |        nuxtjs 支持 Vue3 后重构         |
+|  构架  |                   技术栈                    |                 备注                 |
+| :----: | :-----------------------------------------: | :----------------------------------: |
+|  后台  | Vue3(beta)、Vuex4(beta)、Vue Router(Alpha)  | Vue 3 全家桶目前 typescript Bug 较多 |
+| 服务端 | typescript、nestjs、mongodb、redis、graphql |                  -                   |
+|  前端  |          nuxtjs、vuetify、graphql           |       nuxtjs 支持 Vue3 后重构        |
 
 # 如何使用
 
