@@ -1,0 +1,38 @@
+.el-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
+  &.is-vertical {
+    flex-direction: column;
+  }
+}
+
+.el-header {
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.el-main {
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.el-footer {
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.el-aside {
+  overflow: auto;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}

@@ -1,4 +1,4 @@
-# topfullstuck
+# topfullstack
 
 使用 typescript 开发的全栈视频网站项目，B 站 UP🐖 全栈之巅的重构实现。
 
