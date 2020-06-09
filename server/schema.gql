@@ -15,10 +15,17 @@ type Query {
 
 type Mutation {
   addRecipe(newRecipeInput: NewRecipeInput!): Recipe!
+  updateRecipe(updateRecipeInput: UpdateRecipeInput!): Recipe!
   delRecipe(id: String!): Boolean!
 }
 
 input NewRecipeInput {
+  title: String!
+  description: String
+}
+
+input UpdateRecipeInput {
+  _id: String!
   title: String!
   description: String
 }

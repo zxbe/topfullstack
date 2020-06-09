@@ -8,6 +8,7 @@ import { Model } from 'mongoose'
 import { Recipe as RecipeDb } from '../db/models/recipe.db.model'
 import { NewRecipeInput } from './dto/new-recipe.input'
 import { RecipesArgs } from './dto/recipes.args'
+import { UpdateRecipeInput } from './dto/update-recipe.input'
 import { Recipe } from './recipe.graphql.model'
 
 @Injectable()
@@ -18,6 +19,11 @@ export class RecipesService {
 
   async create(newRecipeInput: NewRecipeInput): Promise<Recipe> {
     return new this.recipeDbModel(newRecipeInput).save()
+  }
+
+  async update(updateRecipeInput: UpdateRecipeInput): Promise<Recipe> {
+    const id = updateRecipeInput._id
+    return this.recipeDbModel.findByIdAndUpdate(id, updateRecipeInput)
   }
 
   async findOneById(id: string): Promise<Recipe> {

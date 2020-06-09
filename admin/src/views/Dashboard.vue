@@ -10,9 +10,8 @@
         flat
         hide-details
         label="Search"
-        prepend-inner-icon="search"
+        prepend-inner-icon="mdi-magnify"
       ></v-text-field>
-
       <v-spacer></v-spacer>
     </v-app-bar>
 
@@ -24,9 +23,6 @@
               <v-subheader v-if="item.heading">
                 {{ item.heading }}
               </v-subheader>
-            </v-col>
-            <v-col cols="6" class="text-right">
-              <v-btn small text>edit</v-btn>
             </v-col>
           </v-row>
           <v-divider
@@ -65,20 +61,18 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { icon: 'dashboard', text: 'Dashboard', path: '/' },
-      { icon: 'touch_app', text: 'Reminders', path: '/about' },
+      { icon: 'mdi-palette', text: 'Dashboard', path: '/' },
       { divider: true },
-      { heading: 'Labels' },
-      { icon: 'add', text: 'Create new label' },
+      { heading: 'Opertation' },
+      {
+        icon: 'mdi-radio-tower',
+        text: 'Graphql',
+        path: '/test'
+      },
       { divider: true },
-      { icon: 'archive', text: 'Archive' },
-      { icon: 'delete', text: 'Trash' },
-      { divider: true },
-      { icon: 'settings', text: 'Settings' },
-      { icon: 'chat_bubble', text: 'Trash' },
-      { icon: 'help', text: 'Help' },
-      { icon: 'phonelink', text: 'App downloads' },
-      { icon: 'keyboard', text: 'Keyboard shortcuts' }
+      { heading: 'System' },
+      { icon: 'mdi-cog', text: 'Settings' },
+      { icon: 'mdi-police-badge', text: 'Auth' }
     ]
   })
 }

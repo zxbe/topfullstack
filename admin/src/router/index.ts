@@ -4,10 +4,9 @@ import Dashboard from '../views/Dashboard.vue'
 
 Vue.use(VueRouter)
 
-const routes: Array<RouteConfig> = [
+const routes: RouteConfig[] = [
   {
     path: '/',
-    name: 'Dashboard',
     component: Dashboard,
     children: [
       {
@@ -15,10 +14,15 @@ const routes: Array<RouteConfig> = [
         path: '/',
         component: async () => import('../views/Home.vue')
       },
+      // {
+      //   name: 'banner',
+      //   path: '/banner',
+      //   component: async () => import('../views/Banner.vue')
+      // },
       {
-        name: 'about',
-        path: '/about',
-        component: async () => import('../views/About.vue')
+        name: 'test',
+        path: '/test',
+        component: async () => import('../views/GraphQL.vue')
       }
     ]
   }
